@@ -1,29 +1,25 @@
 {
   "name": "stencil-webassembly-examples",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Stencil Webassembly Examples",
-  "files": [
-    "dist/"
-  ],
   "scripts": {
-    "build": "stencil build --prerender",
-    "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
-    "serve": "stencil-dev-server",
-    "start": "npm run dev",
-    "test": "jest",
-    "test.watch": "jest --watch"
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "dependencies": {
-    "@stencil/core": "^0.9.6",
-    "@stencil/router": "latest"
+    "@stencil/core": "^0.16.1",
+    "@stencil/router": "^0.3.1"
   },
   "devDependencies": {
-    "@stencil/dev-server": "latest",
-    "@stencil/utils": "latest",
-    "@types/jest": "^21.1.1",
+    "@types/jest": "23.3.10",
+    "@types/puppeteer": "1.11.1",
+    "jest": "23.6.0",
+    "jest-cli": "23.6.0",
+    "puppeteer": "1.8.0",
     "@types/webassembly-js-api": "0.0.1",
-    "jest": "^21.2.1",
     "jest-fetch-mock": "^1.6.2"
   },
   "repository": {
@@ -37,19 +33,8 @@
   },
   "homepage": "https://github.com/jepiqueau/stencil-webassembly-examples#readme",
   "jest": {
-    "transform": {
-      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
-    },
     "setupFiles": [
       "./setupJest.js"
-    ],
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json",
-      "jsx"
     ]
   }
 }

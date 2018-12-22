@@ -6,7 +6,8 @@ const BIT_ROT   = 10;
 
 @Component({
   tag: 'app-gameoflife',
-  styleUrl: 'app-gameoflife.css'
+  styleUrl: 'app-gameoflife.css',
+  shadow: true
 })
 export class AppGameoflife {
 
@@ -35,7 +36,7 @@ export class AppGameoflife {
         this.pause = true;
     }
     componentDidLoad() {
-        this.cnvEl = this.el.querySelector("#canvas");
+        this.cnvEl = this.el.shadowRoot.querySelector("#canvas");
         this.ctx = this.cnvEl.getContext('2d');
         this.renderCanvas();
     }

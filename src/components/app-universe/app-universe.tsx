@@ -3,7 +3,8 @@ import { Component, Element, State } from '@stencil/core';
 
 @Component({
   tag: 'app-universe',
-  styleUrl: 'app-universe.css'
+  styleUrl: 'app-universe.css',
+  shadow: true
 })
 export class AppUniverse {
 
@@ -28,7 +29,7 @@ export class AppUniverse {
         this.pause = true;
     }
     componentDidLoad() {
-        this.cnvEl = this.el.querySelector("#canvas");
+        this.cnvEl = this.el.shadowRoot.querySelector("#canvas");
         this.ctx = this.cnvEl.getContext('2d');
         // define planets
         this.definePlanets();

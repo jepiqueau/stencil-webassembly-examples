@@ -3,7 +3,8 @@ import { Component, Element, State } from '@stencil/core';
 
 @Component({
   tag: 'app-add',
-  styleUrl: 'app-add.css'
+  styleUrl: 'app-add.css',
+  shadow: true
 })
 export class AppAdd {
 
@@ -44,7 +45,7 @@ export class AppAdd {
       }
     });
     const exports = add.instance.exports;
-    let addEl:HTMLDivElement = this.el.querySelector("#add");
+    let addEl:HTMLDivElement = this.el.shadowRoot.querySelector("#add");
     addEl.innerText = "Result: " + exports.add(a, b);
   
   }
